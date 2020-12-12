@@ -1,1 +1,41 @@
-1
+#include <stdio.h>
+
+void shell(int N,int mas[100])
+{
+	for(int k=N/2;k>0;k=k/2)
+	{
+		for(int i=k;i<N;i++)
+		{
+			for(int j=i-k;j>=0;j=j-i)
+			{
+				if(mas[j]<=mas[j+k])
+				{
+					int a;
+					a=mas[j];
+					mas[j]=mas[j+k];
+					mas[j+k]=a;
+					j=0;
+				}
+				
+			}
+		}
+	}
+}
+int main(void) {
+ int n=0;
+	int mass[100];
+	int ma[100];
+	scanf("%d",&n);
+	for(int l=0;l<n;l++)
+	{
+		scanf("%d ",&mass[l]);
+	}
+	shell(n,mass);
+
+	for(int q=0;q<n;q++)
+	{
+		printf("%d ",mass[q]);
+	}
+ 
+	return 0;
+}
